@@ -80,4 +80,21 @@ enum PORT_ENUMs
 };
 }
 
+// SCB_SCR System Control Register
+// set even disabled interrupts can wake from WFE
+#define SCB_SCR_SEVONPEND 0x10
+// set goes to deep sleep (stop) for low power mode, not set sleep (wait)
+#define SCB_SCR_SLEEPDEEP 0x4
+// set returns to sleep after leaving an interrupt (for empty main loop)
+#define SCB_SCR_SLEEPONEXIT 0x2
+
+// SMC_PMSTAT Power Mode Status Register
+// upper bit is reserved
+#define SMC_PMSTAT_MASK 0x7f
+
+// SMC_PMCTRL Poer Mode Control Register
+#define SMC_PMCTRL_NORMAL_RUN 0x20
+// Very Low Power Run
+#define SMC_PMCTRL_VLPR 0x40
+
 #endif // __KINETIS_EXTRA_H__
