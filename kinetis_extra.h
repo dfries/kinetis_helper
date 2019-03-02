@@ -82,11 +82,17 @@ enum PORT_ENUMs
 
 // SCB_SCR System Control Register
 // set even disabled interrupts can wake from WFE
-#define SCB_SCR_SEVONPEND 0x10
+#ifndef SCB_SCR_SEVONPEND
+#define SCB_SCR_SEVONPEND ((uint8_t)0x10) 
+#endif
 // set goes to deep sleep (stop) for low power mode, not set sleep (wait)
-#define SCB_SCR_SLEEPDEEP 0x4
+#ifndef SCB_SCR_SLEEPDEEP
+#define SCB_SCR_SLEEPDEEP ((uint8_t)0x04)
+#endif
 // set returns to sleep after leaving an interrupt (for empty main loop)
-#define SCB_SCR_SLEEPONEXIT 0x2
+#ifndef SCB_SCR_SLEEPONEXIT
+#define SCB_SCR_SLEEPONEXIT ((uint8_t)0x02)
+#endif
 
 // SMC_PMSTAT Power Mode Status Register
 // upper bit is reserved
